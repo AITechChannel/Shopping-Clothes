@@ -57,12 +57,16 @@ function Banner() {
           <div className={cx(indexShow === i ? "active" : null, "banner-item")}>
             <div className={cx("content")}>
               <div className={cx("title")}>
-                <h1>{e.title}</h1>
+                <h1 style={{ color: e.color }}>{e.title}</h1>
               </div>
               <div className={cx("description")}>
                 <p>{e.description}</p>
               </div>
-              <Button primary className={cx("btn")}>
+              <Button
+                style={{ backgroundColor: e.color }}
+                primary
+                className={cx("btn")}
+              >
                 <span>Xem chi tiết</span>
               </Button>
             </div>
@@ -81,7 +85,7 @@ function Banner() {
           <Button onClick={() => handleOnClick("prev")} text>
             <AiOutlineLeft />
           </Button>
-          <span>3/3</span>
+          <span>{indexShow + 1} / 3</span>
           <Button onClick={() => handleOnClick("next")} text>
             <AiOutlineRight />
           </Button>

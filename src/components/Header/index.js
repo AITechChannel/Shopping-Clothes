@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
@@ -7,6 +7,8 @@ import {
   AiOutlineSearch,
   AiOutlineUser,
 } from "react-icons/ai";
+
+import { BiCart } from "react-icons/bi";
 import Button from "../GlobalComponents/Button";
 const cx = classNames.bind(styles);
 
@@ -29,8 +31,22 @@ function Header() {
     return e.path === pathname;
   });
 
+  const [shinkHeader, setShinkHeader] = useState(false);
+
+  useEffect(() => {
+    const handleSrollY = () => {
+      if (window.scrollY > 0) {
+        setShinkHeader(true);
+        return;
+      }
+
+      setShinkHeader(false);
+    };
+    window.addEventListener("scroll", handleSrollY);
+  });
+
   return (
-    <div className={cx("header-container")}>
+    <div className={cx("header-container", shinkHeader ? "shink" : null)}>
       <ul className={cx("menu")}>
         {headerNav.map((e, i) => (
           <li
@@ -49,7 +65,7 @@ function Header() {
           <AiOutlineSearch />
         </Button>
         <Button className={cx("action-icon")} text>
-          <AiOutlineShoppingCart />
+          <BiCart />
         </Button>
         <Button className={cx("action-icon")} text>
           <AiOutlineUser />

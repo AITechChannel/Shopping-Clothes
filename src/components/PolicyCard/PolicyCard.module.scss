@@ -1,0 +1,36 @@
+@use "../../scss/" as *;
+
+.policy-card-container {
+  .card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgb(149 157 165 / 20%);
+    transition: all ease 0.3s;
+  }
+
+  &:hover {
+    .card {
+      transform: translateY(-20px);
+      cursor: pointer;
+      .title {
+        color: $primary;
+      }
+    }
+  }
+
+  .icon {
+    font-size: 2rem;
+    margin-right: 20px;
+    color: $primary;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .description {
+    color: $text-color;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,90 @@
+@use "../../scss/" as *;
+
+.poduct-card-container {
+  .card {
+    padding: 0 50px;
+  }
+  .image {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 75% 0;
+  }
+
+  .image-model,
+  .image-clothes {
+    position: absolute;
+    transition: all ease 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .image-clothes {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  .image:hover {
+    .image-clothes {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .image-model {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  .price-now {
+    font-weight: 700;
+    margin-right: 20px;
+  }
+
+  .price-old {
+    text-decoration: line-through;
+    color: $text-color;
+    font-weight: 400;
+  }
+
+  .price {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    height: 40px;
+    width: 120px;
+    position: relative;
+    overflow: hidden;
+
+    .btn-text {
+      width: 120px;
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
+      left: 50%;
+      top: 50%;
+    }
+
+    .btn-icon {
+      font-size: 1.8rem;
+      width: 120px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-200px) translateY(-40%);
+    }
+
+    &:hover {
+      .btn-text {
+        display: block;
+        transition: all ease 0.5s;
+        transform: translateX(120px) translateY(-50%);
+      }
+      .btn-icon {
+        display: block;
+        transition: all ease 0.5s;
+        transform: translateX(-50%) translateY(-40%);
+      }
+    }
+  }
+}

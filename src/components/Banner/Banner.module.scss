@@ -3,10 +3,10 @@
 .banner-container {
   display: flex;
   align-items: center;
-  margin-top: -160px;
   position: relative;
   height: 100vh;
   width: 100%;
+  margin-bottom: 60px;
 
   .banner-item {
     position: absolute;
@@ -58,6 +58,7 @@
 
   .image {
     flex: 1;
+    z-index: 100;
 
     img {
       transition: all ease 0.5s;
@@ -81,7 +82,7 @@
 
   .pagination {
     position: absolute;
-    bottom: 30px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
