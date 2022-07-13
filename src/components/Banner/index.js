@@ -53,18 +53,30 @@ function Banner() {
   return (
     <>
       <div className={cx("banner-container")}>
-        <div className={cx("content")}>
-          <h1>{data[indexShow].title}</h1>
-          <p>{data[indexShow].description}</p>
-          <Button primary>Xem chi tiết</Button>
-        </div>
-        <div className={cx("image")}>
-          <img src={data[indexShow].image} />
-          <div
-            className={cx("bg-image")}
-            style={{ backgroundColor: data[indexShow].color }}
-          ></div>
-        </div>
+        {data.map((e, i) => (
+          <div className={cx(indexShow === i ? "active" : null, "banner-item")}>
+            <div className={cx("content")}>
+              <div className={cx("title")}>
+                <h1>{e.title}</h1>
+              </div>
+              <div className={cx("description")}>
+                <p>{e.description}</p>
+              </div>
+              <Button primary className={cx("btn")}>
+                <span>Xem chi tiết</span>
+              </Button>
+            </div>
+
+            <div className={cx("image")}>
+              <img src={e.image} />
+              <div
+                className={cx("bg-image")}
+                style={{ backgroundColor: e.color }}
+              ></div>
+            </div>
+          </div>
+        ))}
+
         <div className={cx("pagination")}>
           <Button onClick={() => handleOnClick("prev")} text>
             <AiOutlineLeft />

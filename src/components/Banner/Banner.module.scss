@@ -4,23 +4,65 @@
   display: flex;
   align-items: center;
   margin-top: -160px;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  .banner-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+  }
 
   .content {
     width: 60%;
     margin-right: 80px;
-    h1 {
+
+    .title {
       margin-bottom: 60px;
-      font-size: 3.5rem;
       color: $primary;
+      line-height: 4rem;
+      overflow: hidden;
+      h1 {
+        font-size: 3.5rem;
+        transition: all ease 0.5s;
+        transform: translateY(-100%);
+      }
     }
-    p {
+
+    .description {
       margin-bottom: 60px;
+      overflow: hidden;
+      p {
+        transition: all ease 0.5s;
+        transform: translateY(-100%);
+      }
+    }
+
+    .btn {
+      overflow: hidden;
+      text-transform: uppercase;
+      padding-top: 0;
+      padding-bottom: 0;
+      span {
+        line-height: 3rem;
+        display: block;
+        transition: all ease 0.5s;
+        transform: translateY(-100%);
+      }
     }
   }
 
   .image {
     flex: 1;
-    position: relative;
+
+    img {
+      transition: all ease 0.5s;
+      transform: scale(0) rotate(30deg);
+    }
 
     .bg-image {
       height: 472px;
@@ -29,10 +71,8 @@
       right: 0;
       top: 50%;
       border-radius: 58% 42% 38% 62%/42% 55% 45% 58%;
-      -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
       transition: border-radius 13s ease;
-      -webkit-animation: border 10s infinite;
       animation: border 10s infinite;
       background-color: $primary;
       z-index: -1;
@@ -46,5 +86,33 @@
     transform: translateX(-50%);
     display: flex;
     align-items: center;
+  }
+
+  .active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+
+    .title {
+      h1 {
+        transform: translateY(0);
+      }
+    }
+
+    .description {
+      p {
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      span {
+        transform: translateY(0);
+      }
+    }
+
+    img {
+      transform: scale(1) rotate(0);
+    }
   }
 }
