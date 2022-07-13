@@ -1,0 +1,50 @@
+@use "../../scss/" as *;
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  margin-top: -160px;
+
+  .content {
+    width: 60%;
+    margin-right: 80px;
+    h1 {
+      margin-bottom: 60px;
+      font-size: 3.5rem;
+      color: $primary;
+    }
+    p {
+      margin-bottom: 60px;
+    }
+  }
+
+  .image {
+    flex: 1;
+    position: relative;
+
+    .bg-image {
+      height: 472px;
+      width: 472px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      border-radius: 58% 42% 38% 62%/42% 55% 45% 58%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      transition: border-radius 13s ease;
+      -webkit-animation: border 10s infinite;
+      animation: border 10s infinite;
+      background-color: $primary;
+      z-index: -1;
+    }
+  }
+
+  .pagination {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+  }
+}

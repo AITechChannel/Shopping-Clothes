@@ -1,0 +1,41 @@
+@use "../../scss/" as *;
+.header-container {
+  position: relative;
+  display: flex;
+  font-size: 1.2rem;
+  height: 170px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  .menu {
+    display: flex;
+  }
+
+  .menu-item {
+    margin-right: 20px;
+    text-transform: uppercase;
+    a {
+      color: $text-color;
+      font-weight: 500;
+      transition: all ease 0.3s;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  .isActive {
+    a {
+      color: $primary;
+      font-weight: 700;
+    }
+  }
+  .logo {
+    font-weight: 700;
+    color: $primary;
+    text-transform: uppercase;
+  }
+
+  .action-icon {
+    font-size: 1.5rem;
+  }
+}
