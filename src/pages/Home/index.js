@@ -3,7 +3,10 @@ import saleOffImg from "../../assets/saleOffImage/1.png";
 import Banner from "../../components/Banner";
 import PolicyList from "../../components/PolicyList";
 import ProductList from "../../components/ProducList";
-import data from "./data";
+import dataProductBestSeller from "../../data/dataProductBestSeller";
+
+import dataProductNew from "../../data/dataProductNew";
+import dataProductPopular from "../../data/dataProductPopular";
 function Home() {
   return (
     <>
@@ -14,13 +17,13 @@ function Home() {
       <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
         Top sản phẩm bán chạy trong tuần
       </h2>
-      <ProductList data={data} />
+      <ProductList data={dataProductBestSeller} />
 
       <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
         Top sản phẩm mới
       </h2>
 
-      <ProductList data={data} />
+      <ProductList data={dataProductNew} />
 
       <div style={{ marginBottom: "60px" }}>
         <img src={saleOffImg} />
@@ -28,10 +31,7 @@ function Home() {
       <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
         Sản phẩm phổ biến
       </h2>
-
-      <ProductList data={data} />
-
-      <ProductList data={data} />
+      <ProductList data={dataProductPopular} />
     </>
   );
 }
