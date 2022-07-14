@@ -64,5 +64,3 @@ const dataProductNew = [
 ];
 
 export default dataProductNew;
-
-console.log(dataProductNew);

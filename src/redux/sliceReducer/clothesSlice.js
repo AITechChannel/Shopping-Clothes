@@ -1,33 +1,59 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import dataAllProduct from "../../data/dataAllProduct";
+import { useDispatch, useSelector } from "react-redux";
+
 const clothesSLice = createSlice({
   name: "clothes",
   initialState: {
     productList: dataAllProduct,
-    checkboxStatus: [
-      { name: "t_shirt", checked: false },
-      { name: "shirt", checked: false },
-    ],
+    filter: { type: [], color: [], size: [] },
   },
   reducers: {
     filter: (state, action) => {
-      const currentCheck = state.checkboxStatus.find(
-        (e, i) => e.name === action.payload.value
-      );
+      // console.log(action.payload.state.checkboxStatus.name);
 
-      currentCheck.checked = action.payload.checked;
+      // const currentCheck = state.checkboxStatus.find(
+      //   (e, i) => e.name === action.payload.value
+      // );
+      // currentCheck.checked = action.payload.checked;
+      // console.log(action.payload);
+      // const currentFilter = dataAllProduct.filter((e, i) =>
+      //   ["shirt", "jean"].includes(e.type)
+      // );
 
-      console.log(action.payload);
+      // state.productList = currentFilter;
+      // if (action.payload.checked) {
+      //   const currentFilter = dataAllProduct.filter(
+      //     (e, i) => e.type === "shirt"
+      //   );
+
+      //   state.productList = currentFilter;
+      // } else {
+      //   state.productList = dataAllProduct;
+      // }
+      // console.log(current(state));
 
       if (action.payload.checked) {
-        const currentState = state.productList.filter((e, i) =>
-          e.type.includes(action.payload.value)
-        );
-
-        state.productList = currentState;
+        state.filter.type.push(action.payload.value);
       } else {
-        state.productList = dataAllProduct;
+        state.filter.type.splice(
+          state.filter.type.findIndex((e, i) => e.type === action.payload),
+          1
+        );
       }
+
+      const currentProduct = dataAllProduct.filter((e, i) => {
+        if (state.filter.type.length === 0) {
+          return true;
+        }
+        return state.filter.type.includes(e.type);
+      });
+
+      state.productList = currentProduct;
+
+      // console.log(current(state.filter.type));
+
+      // console.log(action.payload.state);
     },
   },
 });

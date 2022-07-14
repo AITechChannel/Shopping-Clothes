@@ -12,7 +12,7 @@ function ProductList({ data, md = 6 }) {
       <Row gutter={[24, 24]}>
         {data &&
           data.map((e, i) => (
-            <Col md={md}>
+            <Col key={`product_${i}`} md={md}>
               <ProductCard
                 title={e.title}
                 priceNow={e.priceNow}

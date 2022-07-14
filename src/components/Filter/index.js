@@ -8,8 +8,9 @@ const cx = classNames.bind(styles);
 
 function Filter({ className }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.store.checkboxStatus);
-  const handleOnchange = (e, actionName) => {
+  const state = useSelector((state) => state.store);
+  console.log(state);
+  const handleOnchange = (e) => {
     dispatch(
       clothesSLice.actions.filter({
         value: e.target.value,
@@ -26,16 +27,18 @@ function Filter({ className }) {
           <CheckBoxCustom
             label="Áo thun"
             onChange={(e) => handleOnchange(e)}
-            checked={state.checked}
             value="t_shirt"
           />
           <CheckBoxCustom
             label="Áo sơ mi"
             onChange={(e) => handleOnchange(e)}
-            checked={state.checked}
             value="shirt"
           />
-          <CheckBoxCustom label="Quần Jean" />
+          <CheckBoxCustom
+            label="Quần Jean"
+            onChange={(e) => handleOnchange(e)}
+            value="jean"
+          />
         </div>
       </div>
     </div>

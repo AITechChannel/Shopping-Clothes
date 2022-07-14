@@ -64,5 +64,3 @@ const dataProductBestSeller = [
 ];
 
 export default dataProductBestSeller;
-
-console.log(dataProductBestSeller);

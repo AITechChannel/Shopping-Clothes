@@ -100,7 +100,7 @@ const dataAllProduct = [
     color: ["white", "red", "yellow"],
     store: 1000,
     saleOff: "20%",
-    type: "shirt",
+    type: "t_shirt",
   },
   {
     id: uuidv4(),
@@ -113,7 +113,7 @@ const dataAllProduct = [
     color: ["white", "red", "yellow"],
     store: 1000,
     saleOff: "20%",
-    type: "shirt",
+    type: "t_shirt",
   },
   {
     id: uuidv4(),
@@ -165,7 +165,7 @@ const dataAllProduct = [
     color: ["white", "red", "yellow"],
     store: 1000,
     saleOff: "20%",
-    type: "shirt",
+    type: "jean",
   },
   {
     id: uuidv4(),
@@ -178,7 +178,7 @@ const dataAllProduct = [
     color: ["white", "red", "yellow"],
     store: 1000,
     saleOff: "20%",
-    type: "shirt",
+    type: "jean",
   },
   {
     id: uuidv4(),
@@ -187,7 +187,7 @@ const dataAllProduct = [
     priceOld: "159,000",
     imageModel: image12_1,
     imageClothes: image12_2,
-    size: ["s", "m", "xl"],
+    size: ["s", "m", "xl", "xxl"],
     color: ["white", "red", "yellow"],
     store: 1000,
     saleOff: "20%",
