@@ -6,13 +6,13 @@ import { Col, Row } from "antd";
 import ProductCard from "../ProductCard";
 const cx = classNames.bind(styles);
 
-function ProductList({ data }) {
+function ProductList({ data, md = 6 }) {
   return (
     <div className={cx("policy-list-container")}>
       <Row gutter={[24, 24]}>
         {data &&
           data.map((e, i) => (
-            <Col md={6}>
+            <Col md={md}>
               <ProductCard
                 title={e.title}
                 priceNow={e.priceNow}

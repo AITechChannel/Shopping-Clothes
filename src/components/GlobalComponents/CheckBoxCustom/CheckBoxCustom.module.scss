@@ -1,0 +1,41 @@
+@use "../../../scss/" as *;
+
+.custom-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  input {
+    display: none;
+  }
+  span {
+    display: block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $text-color;
+    margin-right: 10px;
+    position: relative;
+    .icon {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      color: $primary;
+      opacity: 0;
+      transform: scale(0.5);
+      font-size: 1rem;
+      transition: all ease 0.1s;
+    }
+  }
+
+  input:checked ~ span {
+    // display: none;
+    .icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 
 const headerNav = [
   { display: "Trang chủ", path: "/" },
-  { display: "Sản phẩm", path: "/catalog" },
+  { display: "Sản phẩm", path: "/product" },
   {
     display: "Phụ kiện",
     path: "/accessories",

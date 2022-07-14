@@ -42,13 +42,11 @@
       }
     }
 
-    .btn {
+    .btn-container {
       overflow: hidden;
-      text-transform: uppercase;
-      padding-top: 0;
-      padding-bottom: 0;
-      span {
-        line-height: 3rem;
+
+      .btn {
+        text-transform: uppercase;
         display: block;
         transition: all ease 0.5s;
         transform: translateY(-100%);
@@ -105,9 +103,8 @@
         transform: translateY(0);
       }
     }
-
-    .btn {
-      span {
+    .btn-container {
+      .btn {
         transform: translateY(0);
       }
     }

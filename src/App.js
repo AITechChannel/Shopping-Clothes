@@ -4,8 +4,10 @@ import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainLayout from "./components/layouts/MainLayout";
 import NotFound from "./components/NotFound";
+import Product from "./pages/Product";
 const publicRoutes = [
   { path: "/", component: Home },
+  { path: "/product", component: Product },
   { path: "*", component: NotFound },
 ];
 
