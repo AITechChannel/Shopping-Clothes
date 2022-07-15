@@ -41,6 +41,26 @@ function Filter({ className }) {
           />
         </div>
       </div>
+      <div>
+        <p>Danh mục sản phẩm</p>
+        <div>
+          <CheckBoxCustom
+            label="Trắng"
+            onChange={(e) => handleOnchange(e)}
+            value="white"
+          />
+          <CheckBoxCustom
+            label="Đen"
+            onChange={(e) => handleOnchange(e)}
+            value="black"
+          />
+          <CheckBoxCustom
+            label="Đỏ"
+            onChange={(e) => handleOnchange(e)}
+            value="red"
+          />
+        </div>
+      </div>
     </div>
   );
 }

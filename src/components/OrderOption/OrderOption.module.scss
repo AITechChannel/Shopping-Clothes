@@ -1,0 +1,58 @@
+@use "../../scss/" as *;
+
+.order-option-container {
+  .color,
+  .size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid $text-light;
+    border-radius: 99px;
+
+    &:hover {
+      border: 3px solid $primary;
+    }
+  }
+  .circle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $text-light;
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .color {
+    margin-right: 20px;
+  }
+
+  .size {
+    border: 2px solid $text-light;
+    margin-right: 20px;
+  }
+
+  .size-option,
+  .color-option {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .text {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .number-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .number {
+    border: 1px solid $text-light;
+    padding: 5px 20px;
+    border-radius: 99px;
+  }
+}
