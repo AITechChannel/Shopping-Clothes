@@ -8,6 +8,8 @@ const clothesSLice = createSlice({
   initialState: {
     productList: dataAllProduct,
     filter: { type: [], color: [], size: [] },
+    cartSelecting: { data: "", color: "", size: "", number: "" },
+    carts: [],
   },
   reducers: {
     filter: (state, action) => {
@@ -50,6 +52,22 @@ const clothesSLice = createSlice({
       //     state.productList = currentProduct;
       //   }
       // }
+    },
+    addCart: (state, action) => {
+      if (dataAllColor.includes(action.payload.actionName)) {
+        state.cartSelecting.color = action.payload.actionName;
+      }
+      if (["s", "m", "xl", "xxl"].includes(action.payload.actionName)) {
+        state.cartSelecting.size = action.payload.actionName;
+      }
+
+      if (action.payload.actionName === "add") {
+        console.log(current(state.cartSelecting));
+
+        state.cartSelecting.data = action.payload.data;
+
+        state.carts.push(state.cartSelecting);
+      }
     },
   },
 });

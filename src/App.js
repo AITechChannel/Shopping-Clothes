@@ -8,7 +8,8 @@ import Product from "./pages/Product";
 import Detail from "./pages/Detail";
 const publicRoutes = [
   { path: "/", component: Home },
-  { path: "/product", component: Detail },
+  { path: "/product", component: Product },
+  { path: "/product/:id", component: Detail },
   { path: "*", component: NotFound },
 ];
 

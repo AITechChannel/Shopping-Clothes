@@ -20,14 +20,18 @@ function ProductCard({
   imageModel,
   imageClothes,
   className,
+  onClick,
+  id,
 }) {
   return (
     <div className={cx("poduct-card-container", `${className}`)}>
       <div className={cx("card")}>
-        <div className={cx("image")}>
-          <img className={cx("image-model")} src={imageModel} />
-          <img className={cx("image-clothes")} src={imageClothes} />
-        </div>
+        <Link to={`/product/${id}`}>
+          <div className={cx("image")}>
+            <img className={cx("image-model")} src={imageModel} />
+            <img className={cx("image-clothes")} src={imageClothes} />
+          </div>
+        </Link>
 
         <span>{title}</span>
 
@@ -35,7 +39,7 @@ function ProductCard({
           <span className={cx("price-now")}>{priceNow}</span>
           <span className={cx("price-old")}>{priceOld}</span>
         </div>
-        <Button primary className={cx("btn")}>
+        <Button primary className={cx("btn")} onClick={onClick}>
           <span className={cx("btn-text")}>Chọn mua</span>
           <span className={cx("btn-icon")}>
             <BiCart />

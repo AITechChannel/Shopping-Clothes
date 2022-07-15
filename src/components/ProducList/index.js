@@ -6,7 +6,10 @@ import { Col, Row } from "antd";
 import ProductCard from "../ProductCard";
 const cx = classNames.bind(styles);
 
-function ProductList({ data, md = 6 }) {
+function ProductList({ data, md = 6, onClick }) {
+  const handleOnClick = (actionName, id) => {
+    onClick(actionName, id);
+  };
   return (
     <div className={cx("policy-list-container")}>
       <Row gutter={[24, 24]}>
@@ -19,6 +22,8 @@ function ProductList({ data, md = 6 }) {
                 priceOld={e.priceOld}
                 imageModel={e.imageModel}
                 imageClothes={e.imageClothes}
+                onClick={() => handleOnClick("select", e.id)}
+                id={e.id}
               />
             </Col>
           ))}

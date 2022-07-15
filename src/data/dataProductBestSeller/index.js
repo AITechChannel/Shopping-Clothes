@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const dataProductBestSeller = [
   {
-    id: uuidv4(),
+    id: 1,
     title: "Áo thun Dinosaur 14",
     priceNow: "159,000",
     priceOld: "159,000",
@@ -26,7 +26,7 @@ const dataProductBestSeller = [
     saleOff: "20%",
   },
   {
-    id: uuidv4(),
+    id: 2,
     title: "Áo thun Dinosaur 14",
     priceNow: "159,000",
     priceOld: "159,000",
@@ -38,7 +38,7 @@ const dataProductBestSeller = [
     saleOff: "20%",
   },
   {
-    id: uuidv4(),
+    id: 3,
     title: "Áo thun Dinosaur 14",
     priceNow: "159,000",
     priceOld: "159,000",
@@ -50,7 +50,7 @@ const dataProductBestSeller = [
     saleOff: "20%",
   },
   {
-    id: uuidv4(),
+    id: 4,
     title: "Áo thun Dinosaur 14",
     priceNow: "159,000",
     priceOld: "159,000",

@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Col, Row } from "antd";
 import classNames from "classnames/bind";
+import React, { useState } from "react";
+import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import dataAllProduct from "../../../../data/dataAllProduct";
+import clothesSLice from "../../../../redux/sliceReducer/clothesSlice";
+import Button from "../../../GlobalComponents/Button";
 import styles from "./OrderOption.module.scss";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineSearch,
-  AiOutlineUser,
-  AiOutlinePlus,
-  AiOutlineLine,
-} from "react-icons/ai";
-import Button from "../GlobalComponents/Button";
-import img1 from "../../assets/productImage/1_1.jpg";
-import img2 from "../../assets/productImage/1_2.jpg";
-import { Row, Col } from "antd";
-import dataAllProduct from "../../data/dataAllProduct";
 const cx = classNames.bind(styles);
 
-function OrderOption({ className }) {
-  const dataProduct = dataAllProduct[0];
+function OrderOption({ data, className }) {
+  const dispatch = useDispatch();
+  const handleOnClick = (actionName) => {
+    // console.log(actionName);
+
+    dispatch(
+      clothesSLice.actions.addCart({ actionName: actionName, data: data })
+    );
+  };
 
   return (
     <div className={cx("order-option-container", `${className}`)}>
       <Row gutter={[24, 24]}>
         <Col md={24}>
-          <h2>{dataProduct.title}</h2>
-          <span>{dataProduct.priceNow}</span>
+          <h2>{data.title}</h2>
+          <span>{data.priceNow}</span>
           <h2>Màu sắc</h2>
           <div className={cx("color-option")}>
-            {dataProduct.color.map((e, i) => (
-              <div className={cx("color")}>
+            {data.color.map((e, i) => (
+              <div className={cx("color")} onClick={() => handleOnClick(e)}>
                 <div
                   className={cx("circle")}
                   style={{ backgroundColor: `${e}` }}
@@ -39,8 +39,12 @@ function OrderOption({ className }) {
 
           <h2>Kích cỡ</h2>
           <div className={cx("size-option")}>
-            {dataProduct.size.map((e, i) => (
-              <div key={`size_${i}`} className={cx("size")}>
+            {data.size.map((e, i) => (
+              <div
+                key={`size_${i}`}
+                className={cx("size")}
+                onClick={() => handleOnClick(e)}
+              >
                 <div className={cx("text")}>{e}</div>
               </div>
             ))}
@@ -60,7 +64,9 @@ function OrderOption({ className }) {
           </div>
 
           <div className="btn-container">
-            <Button primary>Thêm vào giỏ hàng</Button>
+            <Button primary onClick={() => handleOnClick("add")}>
+              Thêm vào giỏ hàng
+            </Button>
             <Button primary>Mua ngay</Button>
           </div>
         </Col>
