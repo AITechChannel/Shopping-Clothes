@@ -6,16 +6,16 @@ import { Col, Row } from "antd";
 import ProductCard from "../ProductCard";
 const cx = classNames.bind(styles);
 
-function ProductList({ data, md = 6, onClick }) {
+function ProductList({ data, xs = 24, md = 8, xl = 6, onClick }) {
   const handleOnClick = (actionName, id) => {
     onClick(actionName, id);
   };
   return (
     <div className={cx("policy-list-container")}>
-      <Row gutter={[24, 24]}>
+      <Row gutter={[24, 40]}>
         {data &&
           data.map((e, i) => (
-            <Col key={`product_${i}`} md={md}>
+            <Col key={`product_${i}`} xs={xs} xl={xl} md={md}>
               <ProductCard
                 title={e.title}
                 priceNow={e.priceNow}

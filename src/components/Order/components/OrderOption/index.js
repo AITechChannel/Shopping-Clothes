@@ -52,14 +52,16 @@ function OrderOption({ data, className }) {
 
           <h2>Số lượng</h2>
           <div className={cx("number-option")}>
-            <Button text>
-              <AiOutlinePlus />
+            <Button text className={cx("btn")}>
+              <span>
+                <AiOutlineLine />
+              </span>
             </Button>
             <div className={cx("number")}>
-              <span>123</span>
+              <span>1</span>
             </div>
-            <Button text>
-              <AiOutlineLine />
+            <Button text className={cx("btn")}>
+              <AiOutlinePlus />
             </Button>
           </div>
 

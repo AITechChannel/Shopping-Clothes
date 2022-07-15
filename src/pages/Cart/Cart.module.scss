@@ -1,0 +1,86 @@
+@use "../../scss/" as *;
+
+.cart-container {
+  padding-top: 180px;
+  .order {
+    box-shadow: 0 8px 24px rgb(149 157 165 / 20%);
+    padding: 40px;
+    @include tablet {
+      padding: 20px;
+    }
+  }
+
+  .total {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet {
+      flex-wrap: wrap;
+    }
+  }
+  .total-number {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .btn-fullwidth {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .image {
+    width: 120px;
+    margin-right: 10px;
+  }
+
+  .number-option {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .number {
+    height: 100%;
+    min-width: 100px;
+    text-align: center;
+    border: 1px solid $text-light;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-add,
+  .btn-sub {
+    border: 1px solid $text-light;
+    height: 40px;
+    padding: 0 0.6rem;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      flex-wrap: wrap;
+    }
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    flex: 1;
+  }
+  .option {
+    font-size: 1rem;
+    color: $text-color;
+  }
+}

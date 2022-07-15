@@ -1,11 +1,13 @@
 @use "../../../scss/" as *;
 .btn {
-  padding: 0.5rem 0.8rem;
+  padding: 1rem 0.8rem;
   font-size: 1.2rem;
   font-weight: 700;
   transition: all ease 0.3s;
   // display: flex;
   align-items: center;
+  text-transform: uppercase;
+  line-height: 1.2rem;
   &:hover {
     cursor: pointer;
   }

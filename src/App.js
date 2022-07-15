@@ -6,9 +6,11 @@ import MainLayout from "./components/layouts/MainLayout";
 import NotFound from "./components/NotFound";
 import Product from "./pages/Product";
 import Detail from "./pages/Detail";
+import Cart from "./pages/Cart";
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/product", component: Product },
+  { path: "/cart", component: Cart },
   { path: "/product/:id", component: Detail },
   { path: "*", component: NotFound },
 ];

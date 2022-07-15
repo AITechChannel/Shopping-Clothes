@@ -3,6 +3,9 @@
 .poduct-card-container {
   .card {
     padding: 0 50px;
+    @include tablet {
+      padding: 0 20px;
+    }
   }
   .image {
     width: 100%;
@@ -71,7 +74,7 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translateX(-200px) translateY(-40%);
+      transform: translateX(-200px) translateY(-50%);
     }
 
     &:hover {
@@ -83,7 +86,7 @@
       .btn-icon {
         display: block;
         transition: all ease 0.5s;
-        transform: translateX(-50%) translateY(-40%);
+        transform: translateX(-50%) translateY(-50%);
       }
     }
   }

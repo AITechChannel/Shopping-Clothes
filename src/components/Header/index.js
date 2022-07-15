@@ -64,7 +64,7 @@ function Header() {
         <Button className={cx("action-icon")} text>
           <AiOutlineSearch />
         </Button>
-        <Button className={cx("action-icon")} text>
+        <Button to="/cart" className={cx("action-icon")} text>
           <BiCart />
         </Button>
         <Button className={cx("action-icon")} text>

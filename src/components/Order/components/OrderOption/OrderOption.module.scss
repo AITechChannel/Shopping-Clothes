@@ -45,14 +45,25 @@
   }
 
   .number-option {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .number {
+    height: 100%;
+    min-width: 100px;
+    text-align: center;
     border: 1px solid $text-light;
-    padding: 5px 20px;
-    border-radius: 99px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn {
+    border: 1px solid $text-light;
+    height: 40px;
+    padding: 0 0.6rem;
   }
 }

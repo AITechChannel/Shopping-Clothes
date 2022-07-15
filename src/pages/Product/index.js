@@ -18,7 +18,7 @@ function Product() {
         <Col md={6}>
           <Filter />
         </Col>
-        <Col md={18}>{data && <ProductList data={data} md={8} />}</Col>
+        <Col md={18}>{data && <ProductList data={data} md={12} xl={8} />}</Col>
       </Row>
     </div>
   );
