@@ -37,6 +37,7 @@ function Header() {
     const handleSrollY = () => {
       if (window.scrollY > 0) {
         setShinkHeader(true);
+
         return;
       }
 

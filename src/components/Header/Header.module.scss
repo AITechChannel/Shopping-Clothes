@@ -5,13 +5,13 @@
   height: 170px;
   align-items: center;
   justify-content: space-between;
-  z-index: 99;
+  z-index: 101;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 0 100px;
-  background-color: $white;
+  // background-color: $white;
   transition: height ease 0.3s;
   ul {
     margin-bottom: 0;
@@ -57,4 +57,5 @@
   height: 70px;
   z-index: 101;
   box-shadow: 0 8px 24px rgb(149 157 165 / 20%);
+  background-color: $white;
 }
