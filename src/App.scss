@@ -11,6 +11,12 @@
 
 html {
   font-size: 100%;
+  @include tablet {
+    font-size: 85%;
+  }
+  @include mobile {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -20,6 +26,8 @@ body {
 
 ul {
   list-style: none;
+
+  margin-bottom: 0;
 }
 
 a {

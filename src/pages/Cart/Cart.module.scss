@@ -2,6 +2,11 @@
 
 .cart-container {
   padding-top: 180px;
+
+  @include tablet {
+    padding-top: 110px;
+  }
+
   .order {
     box-shadow: 0 8px 24px rgb(149 157 165 / 20%);
     padding: 40px;

@@ -15,6 +15,9 @@
     display: flex;
     align-items: center;
     opacity: 0;
+    @include tablet {
+      flex-direction: column-reverse;
+    }
   }
 
   .content {
@@ -24,7 +27,7 @@
     .title {
       margin-bottom: 60px;
       color: $primary;
-      line-height: 4rem;
+      line-height: 3.5rem;
       overflow: hidden;
       h1 {
         font-size: 3.5rem;
@@ -52,12 +55,26 @@
         transform: translateY(-100%);
       }
     }
+    @include tablet {
+      width: 100%;
+      margin-right: 0;
+      .title {
+        margin-bottom: 0;
+      }
+      .description {
+        margin-bottom: 20px;
+      }
+    }
   }
 
   .image {
     flex: 1;
     z-index: 100;
- 
+    position: relative;
+
+    @include tablet {
+      width: 40%;
+    }
 
     img {
       transition: all ease 0.5s;
@@ -65,8 +82,8 @@
     }
 
     .bg-image {
-      height: 472px;
-      width: 472px;
+      padding-top: 100%;
+      width: 100%;
       position: absolute;
       right: 0;
       top: 50%;

@@ -8,6 +8,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 
+import { GrMenu, GrClose, GrPrevious } from "react-icons/gr";
 import { BiCart } from "react-icons/bi";
 import Button from "../GlobalComponents/Button";
 const cx = classNames.bind(styles);
@@ -32,15 +33,14 @@ function Header() {
   });
 
   const [shinkHeader, setShinkHeader] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     const handleSrollY = () => {
       if (window.scrollY > 0) {
         setShinkHeader(true);
-
         return;
       }
-
       setShinkHeader(false);
     };
     window.addEventListener("scroll", handleSrollY);
@@ -48,7 +48,41 @@ function Header() {
 
   return (
     <div className={cx("header-container", shinkHeader ? "shink" : null)}>
-      <ul className={cx("menu")}>
+      <Button
+        text
+        className={cx("sub-icon")}
+        onClick={() => setShowMenu(!showMenu)}
+      >
+        <GrMenu />
+      </Button>
+
+      <div className={cx(showMenu ? "active" : null, "overlay")}>
+        <div className={cx("menu-slider")}>
+          <Button
+            text
+            className={cx("back-icon")}
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <GrPrevious />
+          </Button>
+          <ul className={cx("menu-tablet")}>
+            {headerNav.map((e, i) => (
+              <li
+                key={`headerNav_${i}`}
+                className={cx(
+                  i === isActiveIndex ? "isActive" : null,
+                  "menu-item"
+                )}
+                onClick={() => setShowMenu(false)}
+              >
+                <Link to={e.path}>{e.display}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <ul className={cx("menu-pc")}>
         {headerNav.map((e, i) => (
           <li
             key={`headerNav_${i}`}

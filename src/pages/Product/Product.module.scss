@@ -1,0 +1,8 @@
+@use "../../scss/" as *;
+
+.product-container {
+  padding-top: 180px;
+  @include tablet {
+    padding-top: 110px;
+  }
+}

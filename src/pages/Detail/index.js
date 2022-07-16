@@ -11,9 +11,13 @@ import dataAllProduct from "../../data/dataAllProduct";
 import { useSelector } from "react-redux";
 import DesProduct from "../../components/Order/components/DesProduct";
 import OrderOption from "../../components/Order/components/OrderOption";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams, useLocation } from "react-router-dom";
 import Order from "../../components/Order";
 import dataProductMore from "../../data/dataProductMore";
+import classNames from "classnames/bind";
+
+import styles from "./Detail.module.scss";
+const cx = classNames.bind(styles);
 function Detail() {
   const { id } = useParams();
   const [dataProductShow, setDataProductShow] = useState();
@@ -30,9 +34,15 @@ function Detail() {
     console.log(dataProductShow);
   }, [id]);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   console.log(id);
   return (
-    <div style={{ paddingTop: "200px" }}>
+    <div className={cx("detail-container")}>
       {dataProductShow && <Order data={dataProductShow} />}
       <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
         Khám phá thêm

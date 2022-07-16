@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import saleOffImg from "../../assets/saleOffImage/1.png";
 import Banner from "../../components/Banner";
 import Order from "../../components/Order";
@@ -9,6 +9,7 @@ import dataProductBestSeller from "../../data/dataProductBestSeller";
 import dataProductNew from "../../data/dataProductNew";
 import dataProductPopular from "../../data/dataProductPopular";
 import dataAllProduct from "../../data/dataAllProduct";
+import { useLocation } from "react-router-dom";
 
 function Home() {
   const [showOrder, setShowOrder] = useState(false);
@@ -29,6 +30,11 @@ function Home() {
         break;
     }
   };
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
   return (
     <>
       <Banner />

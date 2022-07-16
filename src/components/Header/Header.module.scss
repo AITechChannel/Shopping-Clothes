@@ -11,28 +11,83 @@
   left: 0;
   right: 0;
   padding: 0 100px;
-  // background-color: $white;
   transition: height ease 0.3s;
-  ul {
-    margin-bottom: 0;
+  @include tablet {
+    height: 70px;
+    box-shadow: 0 8px 24px rgb(149 157 165 / 20%);
+    padding: 0 20px;
   }
 
-  .menu {
-    display: flex;
+  .sub-icon {
+    display: none;
+    @include tablet {
+      display: block;
+    }
   }
 
-  .menu-item {
-    margin-right: 30px;
-    text-transform: uppercase;
-    a {
-      color: $text-color;
-      font-weight: 500;
+  .overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 0.3s;
+
+    .menu-slider {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 400px;
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 20px;
+      text-align: center;
+      transform: translateX(-400px);
       transition: all ease 0.3s;
-      &:hover {
-        color: $primary;
+      .menu-item {
+        margin-bottom: 20px;
+      }
+      .back-icon {
+        position: absolute;
+        left: 20px;
+        top: 7.5px;
+        z-index: 1;
       }
     }
   }
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+    .menu-slider {
+      transform: translateX(0);
+    }
+  }
+
+  .menu-pc {
+    display: flex;
+    .menu-item {
+      margin-right: 30px;
+      text-transform: uppercase;
+      a {
+        color: $text-color;
+        font-weight: 500;
+        transition: all ease 0.3s;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+
   .isActive {
     a {
       color: $primary;
@@ -47,10 +102,9 @@
 
   .actions {
     display: flex;
-  }
-
-  .action-icon {
-    font-size: 1.5rem;
+    .action-icon {
+      font-size: 1.5rem;
+    }
   }
 }
 .shink {

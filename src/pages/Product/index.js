@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import saleOffImg from "../../assets/saleOffImage/1.png";
 import Banner from "../../components/Banner";
 import PolicyList from "../../components/PolicyList";
@@ -9,11 +9,22 @@ import Filter from "../../components/Filter";
 import dataAllProduct from "../../data/dataAllProduct";
 
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import classNames from "classnames/bind";
+
+import styles from "./Product.module.scss";
+const cx = classNames.bind(styles);
 function Product() {
   const data = useSelector((state) => state.store.productList);
-  console.log(data);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
-    <div style={{ paddingTop: "200px" }}>
+    <div className={cx("product-container")}>
       <Row>
         <Col md={6}>
           <Filter />

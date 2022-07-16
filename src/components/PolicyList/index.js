@@ -43,7 +43,7 @@ function PolicyList() {
     <div className={cx("policies-container")}>
       <Row gutter={[24, 24]}>
         {data.map((e, i) => (
-          <Col md={6}>
+          <Col xl={6} md={12} xs={24}>
             <PolicyCard
               className={cx("policy-item")}
               icon={e.icon}

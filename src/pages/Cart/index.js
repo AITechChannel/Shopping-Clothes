@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Cart.module.scss";
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
 import { Col, Row, Divider } from "antd";
@@ -7,12 +7,19 @@ import Button from "../../components/GlobalComponents/Button";
 import img from "../../assets/productImage/1_1.jpg";
 
 import { FiTrash } from "react-icons/fi";
+import { useLocation } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 function Cart({ data, md = 6, onClick }) {
   const handleOnClick = (actionName, id) => {
     onClick(actionName, id);
   };
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className={cx("cart-container")}>
       <Row gutter={[24, 24]}>
@@ -79,10 +86,20 @@ function Cart({ data, md = 6, onClick }) {
               <img src={img} />
             </div>
             <div className={cx("content")}>
-              <p className={cx("title")}>Cong hoa xa hoi chu nghia viet nam</p>
+              <div className={cx("text")}>
+                <span className={cx("title")}>
+                  Cong hoa xa hoi chu nghia viet nam
+                </span>
+                <span className={cx("option")}>
+                  Color: <b>white</b>
+                </span>
+                <span className={cx("option")}>
+                  Size: <b>xl</b>
+                </span>
+              </div>
 
               <span>
-                <b>213000</b>
+                <b>213,000</b>
               </span>
               <div className={cx("number-option")}>
                 <Button text className={cx("btn-add")}>
