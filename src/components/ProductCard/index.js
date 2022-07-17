@@ -11,6 +11,7 @@ import { BiCart } from "react-icons/bi";
 import Button from "../GlobalComponents/Button";
 import product1 from "../../assets/productImage/1_1.jpg";
 import product2 from "../../assets/productImage/1_2.jpg";
+import NumberFormat from "react-number-format";
 const cx = classNames.bind(styles);
 
 function ProductCard({
@@ -36,8 +37,24 @@ function ProductCard({
         <span>{title}</span>
 
         <div className={cx("price")}>
-          <span className={cx("price-now")}>{priceNow}</span>
-          <span className={cx("price-old")}>{priceOld}</span>
+          <span className={cx("price-now")}>
+            <NumberFormat
+              value={priceNow}
+              className="foo"
+              displayType={"text"}
+              thousandSeparator={true}
+              suffix={" đ"}
+            />
+          </span>
+          <span className={cx("price-old")}>
+            <NumberFormat
+              value={priceOld}
+              className="foo"
+              displayType={"text"}
+              thousandSeparator={true}
+              suffix={" đ"}
+            />
+          </span>
         </div>
         <Button primary className={cx("btn")} onClick={onClick}>
           <span className={cx("btn-text")}>Chọn mua</span>

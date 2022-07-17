@@ -7,7 +7,7 @@ import {
   AiOutlineSearch,
   AiOutlineUser,
 } from "react-icons/ai";
-
+import { useSelector } from "react-redux";
 import { GrMenu, GrClose, GrPrevious } from "react-icons/gr";
 import { BiCart } from "react-icons/bi";
 import Button from "../GlobalComponents/Button";
@@ -27,6 +27,7 @@ const headerNav = [
 ];
 function Header() {
   const { pathname } = useLocation();
+  const dataCart = useSelector((state) => state.store.cart);
 
   const isActiveIndex = headerNav.findIndex((e, i) => {
     return e.path === pathname;
@@ -70,7 +71,7 @@ function Header() {
               <li
                 key={`headerNav_${i}`}
                 className={cx(
-                  i === isActiveIndex ? "isActive" : null,
+                  i === isActiveIndex ? "active" : null,
                   "menu-item"
                 )}
                 onClick={() => setShowMenu(false)}
@@ -86,7 +87,7 @@ function Header() {
         {headerNav.map((e, i) => (
           <li
             key={`headerNav_${i}`}
-            className={cx(i === isActiveIndex ? "isActive" : null, "menu-item")}
+            className={cx(i === isActiveIndex ? "active" : null, "menu-item")}
           >
             <Link to={e.path}>{e.display}</Link>
           </li>
@@ -99,9 +100,12 @@ function Header() {
         <Button className={cx("action-icon")} text>
           <AiOutlineSearch />
         </Button>
-        <Button to="/cart" className={cx("action-icon")} text>
-          <BiCart />
-        </Button>
+        <div className={cx("cart")}>
+          <Button to="/cart" className={cx("action-icon")} text>
+            <BiCart />
+          </Button>
+          <span>{dataCart.length}</span>
+        </div>
         <Button className={cx("action-icon")} text>
           <AiOutlineUser />
         </Button>

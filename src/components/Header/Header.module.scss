@@ -33,6 +33,7 @@
     right: 0;
     background-color: rgba($color: #000000, $alpha: 0.5);
     opacity: 0;
+    z-index: 999;
     visibility: hidden;
     transition: all ease 0.3s;
 
@@ -58,6 +59,12 @@
         left: 20px;
         top: 7.5px;
         z-index: 1;
+      }
+      .active {
+        a {
+          color: $primary;
+          font-weight: 700;
+        }
       }
     }
   }
@@ -86,14 +93,14 @@
     @include tablet {
       display: none;
     }
-  }
-
-  .isActive {
-    a {
-      color: $primary;
-      font-weight: 700;
+    .active {
+      a {
+        color: $primary;
+        font-weight: 700;
+      }
     }
   }
+
   .logo {
     font-weight: 700;
     color: $primary;
@@ -104,6 +111,31 @@
     display: flex;
     .action-icon {
       font-size: 1.5rem;
+    }
+
+    .cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      span {
+        position: absolute;
+        top: 6px;
+        right: -2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: red;
+
+        border-radius: 99px;
+        width: 1.2rem;
+        height: 1.2rem;
+        color: $white;
+        font-size: 0.9rem;
+      }
     }
   }
 }

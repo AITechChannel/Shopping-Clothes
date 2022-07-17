@@ -16,8 +16,8 @@ const dataProductNew = [
   {
     id: uuidv4(),
     title: "Áo thun Dinosaur 14",
-    priceNow: "159,000",
-    priceOld: "159,000",
+    priceNow: 169000,
+    priceOld: 169000,
     imageModel: image5_1,
     imageClothes: image5_2,
     size: ["s", "m", "xl"],
@@ -28,8 +28,8 @@ const dataProductNew = [
   {
     id: uuidv4(),
     title: "Áo thun Dinosaur 14",
-    priceNow: "159,000",
-    priceOld: "159,000",
+    priceNow: 169000,
+    priceOld: 169000,
     imageModel: image6_1,
     imageClothes: image6_2,
     size: ["s", "m", "xl"],
@@ -40,8 +40,8 @@ const dataProductNew = [
   {
     id: uuidv4(),
     title: "Áo thun Dinosaur 14",
-    priceNow: "159,000",
-    priceOld: "159,000",
+    priceNow: 169000,
+    priceOld: 169000,
     imageModel: image7_1,
     imageClothes: image7_2,
     size: ["s", "m", "xl"],
@@ -52,8 +52,8 @@ const dataProductNew = [
   {
     id: uuidv4(),
     title: "Áo thun Dinosaur 14",
-    priceNow: "159,000",
-    priceOld: "159,000",
+    priceNow: 169000,
+    priceOld: 169000,
     imageModel: image8_1,
     imageClothes: image8_2,
     size: ["s", "m", "xl"],

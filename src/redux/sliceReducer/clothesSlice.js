@@ -9,7 +9,7 @@ const clothesSLice = createSlice({
     productList: dataAllProduct,
     filter: { type: [], color: [], size: [] },
     cartSelecting: { data: "", color: "", size: "", number: "" },
-    carts: [],
+    cart: [],
   },
   reducers: {
     filter: (state, action) => {
@@ -65,8 +65,29 @@ const clothesSLice = createSlice({
         console.log(current(state.cartSelecting));
 
         state.cartSelecting.data = action.payload.data;
+        state.cartSelecting.number = action.payload.number;
 
-        state.carts.push(state.cartSelecting);
+        state.cart.push(state.cartSelecting);
+      }
+
+      if (action.payload.initCart) {
+        state.cart = action.payload.initCart;
+      }
+    },
+    delCart: (state, action) => {
+      state.cart.splice(
+        state.cart.findIndex((e, i) => e.data.id == action.payload),
+        1
+      );
+    },
+    updateCart: (state, action) => {
+      if (action.payload.actionName === "increase") {
+        const current1 = state.cart.find(
+          (e, i) => e.data.id == action.payload.value
+        );
+
+        // current1.number = action.payload.value;
+        // console.log(current(current1));
       }
     },
   },

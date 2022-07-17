@@ -10,12 +10,24 @@ import styles from "./OrderOption.module.scss";
 const cx = classNames.bind(styles);
 
 function OrderOption({ data, className }) {
+  const [number, setNumber] = useState(1);
   const dispatch = useDispatch();
   const handleOnClick = (actionName) => {
-    // console.log(actionName);
+    switch (actionName) {
+      case "increase":
+        setNumber(number + 1);
+        break;
+      case "decrease":
+        setNumber(number - 1);
+        break;
+    }
 
     dispatch(
-      clothesSLice.actions.addCart({ actionName: actionName, data: data })
+      clothesSLice.actions.addCart({
+        actionName: actionName,
+        data: data,
+        number: number,
+      })
     );
   };
 
@@ -52,15 +64,23 @@ function OrderOption({ data, className }) {
 
           <h2>Số lượng</h2>
           <div className={cx("number-option")}>
-            <Button text className={cx("btn")}>
+            <Button
+              text
+              className={cx("btn")}
+              onClick={() => handleOnClick("decrease")}
+            >
               <span>
                 <AiOutlineLine />
               </span>
             </Button>
             <div className={cx("number")}>
-              <span>1</span>
+              <span>{number}</span>
             </div>
-            <Button text className={cx("btn")}>
+            <Button
+              text
+              className={cx("btn")}
+              onClick={() => handleOnClick("increase")}
+            >
               <AiOutlinePlus />
             </Button>
           </div>

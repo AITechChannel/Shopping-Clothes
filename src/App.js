@@ -6,11 +6,14 @@ import MainLayout from "./components/layouts/MainLayout";
 import NotFound from "./components/NotFound";
 import Product from "./pages/Product";
 import Detail from "./pages/Detail";
-import Cart from "./pages/Cart";
+import { useSelector } from "react-redux";
+import CartPage from "./pages/CartPage";
+import { useEffect } from "react";
+
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/product", component: Product },
-  { path: "/cart", component: Cart },
+  { path: "/cart", component: CartPage },
   { path: "/product/:id", component: Detail },
   { path: "*", component: NotFound },
 ];
