@@ -14,7 +14,6 @@ function Banner() {
 
   if (bannerItemElementRef.current) {
     const bannerItemHeight = bannerItemElementRef.current.offsetHeight;
-    console.log(bannerItemHeight);
   }
 
   const handleOnClick = (actionName) => {
@@ -38,6 +37,7 @@ function Banner() {
     <div className={cx("banner-container")}>
       {data.map((e, i) => (
         <div
+          key={`bannerItem _${i}`}
           className={cx(indexShow === i ? "active" : null, "banner-item")}
           ref={bannerItemElementRef}
         >
@@ -53,6 +53,7 @@ function Banner() {
                 style={{ backgroundColor: e.color }}
                 primary
                 className={cx("btn")}
+                to="/product/1"
               >
                 Xem chi tiết
               </Button>

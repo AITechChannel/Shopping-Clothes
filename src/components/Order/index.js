@@ -7,22 +7,35 @@ import OrderOption from "./components/OrderOption";
 import styles from "./Order.module.scss";
 
 const cx = classNames.bind(styles);
-function Order({ modal = false, onClose, data }) {
+function Order({ modal = false, onClick, data }) {
+  const handleOnClick = (actionName, e) => {
+    onClick(actionName, e);
+  };
   return (
     <div className={cx("order-container")}>
       {modal && (
-        <div className={cx("order-modal")}>
+        <div
+          className={cx("order-modal")}
+          onClick={(e) => handleOnClick("overlayClick")}
+        >
           <div className={cx("modal")}>
-            <div className={cx("order-inner")}>
+            <div
+              className={cx("order-inner")}
+              onClick={(e) => handleOnClick("innerClick", e)}
+            >
               <Row gutter={[24, 24]}>
-                <Col md={14}>
+                <Col md={14} xs={24}>
                   <DesProduct data={data} />
                 </Col>
-                <Col md={10}>
+                <Col md={10} xs={24}>
                   <OrderOption data={data} />
                 </Col>
               </Row>
-              <Button className={cx("close")} primary onClick={onClose}>
+              <Button
+                className={cx("close")}
+                primary
+                onClick={() => handleOnClick("btnClick")}
+              >
                 Đóng
               </Button>
             </div>
@@ -33,10 +46,10 @@ function Order({ modal = false, onClose, data }) {
       {!modal && (
         <div className={cx("order")}>
           <Row gutter={[24, 24]}>
-            <Col md={14}>
+            <Col md={14} xs={24}>
               <DesProduct data={data} />
             </Col>
-            <Col md={10}>
+            <Col md={10} xs={24}>
               <OrderOption data={data} />
             </Col>
           </Row>

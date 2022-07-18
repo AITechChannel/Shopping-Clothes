@@ -22,7 +22,9 @@ function Filter({ className }) {
   return (
     <div className={cx("Filter-container", `${className}`)}>
       <div>
-        <p>Danh mục sản phẩm</p>
+        <p>
+          <b>Danh mục sản phẩm</b>
+        </p>
         <div>
           <CheckBoxCustom
             label="Áo thun"

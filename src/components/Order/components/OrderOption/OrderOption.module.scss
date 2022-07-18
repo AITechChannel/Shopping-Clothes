@@ -1,8 +1,8 @@
 @use "../../../../scss/" as *;
 
 .order-option-container {
+  width: 100%;
   position: sticky;
-
   top: 0;
 
   .color,
@@ -19,6 +19,7 @@
       border: 3px solid $primary;
     }
   }
+
   .circle {
     width: 40px;
     height: 40px;
@@ -77,5 +78,9 @@
   }
   .btn-buy {
     margin-left: 0;
+  }
+
+  .active {
+    border: 3px solid $primary;
   }
 }

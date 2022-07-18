@@ -1,0 +1,14 @@
+@use "../../scss/" as *;
+
+.cart-page-container {
+  display: flex;
+  justify-content: center;
+  .img-empty {
+    width: 50%;
+    padding-top: 70px;
+
+    @include tablet {
+      padding: 100px 0;
+    }
+  }
+}

@@ -9,10 +9,13 @@ import Detail from "./pages/Detail";
 import { useSelector } from "react-redux";
 import CartPage from "./pages/CartPage";
 import { useEffect } from "react";
+import Accessories from "./components/Accessories";
 
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/product", component: Product },
+  { path: "/accessories", component: Accessories },
+  { path: "/contact", component: Accessories },
   { path: "/cart", component: CartPage },
   { path: "/product/:id", component: Detail },
   { path: "*", component: NotFound },

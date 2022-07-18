@@ -17,6 +17,7 @@ function Cart({ md = 6 }) {
   const [number, setNumber] = useState(1);
 
   const location = useLocation();
+  console.log("render cart");
 
   const dataCartRedux = useSelector((state) => state.store.cart);
 
@@ -53,6 +54,7 @@ function Cart({ md = 6 }) {
   useEffect(() => {
     const dataJsonCart = localStorage.getItem("cart");
     const dataCart = JSON.parse(dataJsonCart);
+    console.log(dataCart);
     if (dataJsonCart) {
       dispatch(clothesSLice.actions.addCart({ initCart: dataCart }));
     }
@@ -71,7 +73,7 @@ function Cart({ md = 6 }) {
   return (
     <div className={cx("cart-container")}>
       <Row gutter={[24, 24]}>
-        <Col md={8} xl={8}>
+        <Col xl={8} md={24} xs={24}>
           <div className={cx("order")}>
             <p>
               Bạn đang có
@@ -95,12 +97,12 @@ function Cart({ md = 6 }) {
             <Button className={cx("btn-fullwidth")} primary>
               Đặt hàng
             </Button>
-            <Button className={cx("btn-fullwidth")} primary>
+            <Button className={cx("btn-fullwidth")} primary to="/product">
               Tiếp tục mua hàng
             </Button>
           </div>
         </Col>
-        <Col md={16} xl={16}>
+        <Col md={24} xl={16} xs={24}>
           {dataCartRedux &&
             dataCartRedux.map((e, i) => (
               <div key={`cartItem_${i}`}>

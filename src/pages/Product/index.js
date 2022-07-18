@@ -27,11 +27,11 @@ function Product() {
 
   const [dataProductShow, setDataProductShow] = useState();
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
-  const handleOnClick = (actionName, id) => {
+  const handleOnClick = (actionName, id_e) => {
     switch (actionName) {
       case "select":
         const dataProductSelect = dataAllProduct.find((e, i) => {
-          return e.id === id;
+          return e.id === id_e;
         });
 
         setDataProductShow(dataProductSelect);
@@ -40,6 +40,18 @@ function Product() {
           setShowOrder(!showOrder);
         }
 
+        break;
+
+      case "btnClick":
+        setShowOrder(false);
+        break;
+
+      case "overlayClick":
+        setShowOrder(false);
+        break;
+
+      case "innerClick":
+        id_e.stopPropagation();
         break;
     }
   };
@@ -56,11 +68,7 @@ function Product() {
           )}
         </Col>
         {showOrder && (
-          <Order
-            modal
-            onClose={() => setShowOrder(false)}
-            data={dataProductShow}
-          />
+          <Order modal onClick={handleOnClick} data={dataProductShow} />
         )}
       </Row>
     </div>

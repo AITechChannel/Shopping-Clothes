@@ -34,7 +34,7 @@ const data = [
   {
     icon: <BiDonateBlood />,
     title: "Hỗ trợ bảo hành",
-    description: "Đổi, sửa đồ tại tất cả store",
+    description: "Đổi, chỉnh sửa đồ tại tất cả store",
   },
 ];
 
@@ -43,7 +43,7 @@ function PolicyList() {
     <div className={cx("policies-container")}>
       <Row gutter={[24, 24]}>
         {data.map((e, i) => (
-          <Col xl={6} md={12} xs={24}>
+          <Col xl={6} md={12} xs={24} key={`policy_${i}`}>
             <PolicyCard
               className={cx("policy-item")}
               icon={e.icon}

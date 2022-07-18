@@ -8,7 +8,7 @@ function Footer({ className }) {
   return (
     <div className={cx("footer-container", `${className}`)}>
       <Row gutter={[24, 24]}>
-        <Col md={6}>
+        <Col md={6} xs={12}>
           <h5>Tổng đài hỗ trợ</h5>
           <ul>
             <li>
@@ -22,7 +22,7 @@ function Footer({ className }) {
             </li>
           </ul>
         </Col>
-        <Col md={6}>
+        <Col md={6} xs={12}>
           <h5>Về Yolo Shop</h5>
           <ul>
             <li>Giới thiệu</li>
@@ -34,7 +34,7 @@ function Footer({ className }) {
           </ul>
         </Col>
 
-        <Col md={6}>
+        <Col md={6} xs={12}>
           <h5>Về Yolo Shop</h5>
           <ul>
             <li>Chính sách đổi trả</li>
@@ -42,7 +42,7 @@ function Footer({ className }) {
             <li>Chính sách hoàn tiền</li>
           </ul>
         </Col>
-        <Col md={6}>
+        <Col md={6} xs={12}>
           <h5>Về Yolo Shop</h5>
           <p>
             Hướng đến mục tiêu mang lại niềm vui ăn mặc mới mỗi ngày cho hàng

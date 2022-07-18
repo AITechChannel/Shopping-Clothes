@@ -2,6 +2,7 @@
 
 .cart-container {
   padding-top: 180px;
+  width: 100%;
 
   @include tablet {
     padding-top: 110px;
@@ -32,6 +33,11 @@
     width: 100%;
     margin-left: 0;
     margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    &:hover {
+      color: $white;
+    }
   }
 
   .product-item {

@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     opacity: 0;
+    visibility: hidden;
     @include tablet {
       flex-direction: column-reverse;
     }
@@ -50,9 +51,12 @@
 
       .btn {
         text-transform: uppercase;
-        display: block;
+        display: inline-block;
         transition: all ease 0.5s;
         transform: translateY(-100%);
+        &:hover {
+          color: $white;
+        }
       }
     }
     @include tablet {
@@ -108,7 +112,7 @@
   .active {
     opacity: 1;
     visibility: visible;
-    pointer-events: visible;
+    // pointer-events: visible;
 
     .title {
       h1 {

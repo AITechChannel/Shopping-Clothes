@@ -20,11 +20,11 @@ function Home() {
 
   const [dataProductShow, setDataProductShow] = useState();
 
-  const handleOnClick = (actionName, id) => {
+  const handleOnClick = (actionName, id_e) => {
     switch (actionName) {
       case "select":
         const dataProductSelect = dataAllProduct.find((e, i) => {
-          return e.id === id;
+          return e.id === id_e;
         });
 
         setDataProductShow(dataProductSelect);
@@ -32,7 +32,18 @@ function Home() {
         if (!isTabletOrMobile) {
           setShowOrder(!showOrder);
         }
+        break;
 
+      case "btnClick":
+        setShowOrder(false);
+        break;
+
+      case "overlayClick":
+        setShowOrder(false);
+        break;
+
+      case "innerClick":
+        id_e.stopPropagation();
         break;
     }
   };
@@ -70,11 +81,7 @@ function Home() {
       <ProductList data={dataProductPopular} onClick={handleOnClick} />
 
       {showOrder && (
-        <Order
-          modal
-          onClose={() => setShowOrder(false)}
-          data={dataProductShow}
-        />
+        <Order modal onClick={handleOnClick} data={dataProductShow} />
       )}
     </>
   );

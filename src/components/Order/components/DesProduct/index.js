@@ -22,7 +22,7 @@ function DesProduct({ data, className }) {
   return (
     <div className={cx("des-product-container", `${className}`)}>
       <Row gutter={[24, 24]}>
-        <Col md={6}>
+        <Col md={6} xs={6}>
           <div>
             {dataImg.map((e, i) => (
               <img
@@ -33,7 +33,7 @@ function DesProduct({ data, className }) {
             ))}
           </div>
         </Col>
-        <Col md={18}>
+        <Col md={18} xs={18}>
           <img src={dataImg[showImgIndex]}></img>
         </Col>
       </Row>

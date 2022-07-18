@@ -7,6 +7,8 @@ import dataAllProduct from "../../../../data/dataAllProduct";
 import clothesSLice from "../../../../redux/sliceReducer/clothesSlice";
 import Button from "../../../GlobalComponents/Button";
 import styles from "./OrderOption.module.scss";
+
+import { useSelector } from "react-redux";
 const cx = classNames.bind(styles);
 
 function OrderOption({ data, className }) {
@@ -31,16 +33,25 @@ function OrderOption({ data, className }) {
     );
   };
 
+  const dataCartSlecting = useSelector((state) => state.store.cartSelecting);
+
   return (
     <div className={cx("order-option-container", `${className}`)}>
       <Row gutter={[24, 24]}>
-        <Col md={24}>
+        <Col md={24} xs={24}>
           <h2>{data.title}</h2>
           <span>{data.priceNow}</span>
           <h2>Màu sắc</h2>
           <div className={cx("color-option")}>
             {data.color.map((e, i) => (
-              <div className={cx("color")} onClick={() => handleOnClick(e)}>
+              <div
+                key={`color-option_${i}`}
+                className={cx(
+                  dataCartSlecting.color === e ? "active" : null,
+                  "color"
+                )}
+                onClick={() => handleOnClick(e)}
+              >
                 <div
                   className={cx("circle")}
                   style={{ backgroundColor: `${e}` }}
@@ -54,7 +65,10 @@ function OrderOption({ data, className }) {
             {data.size.map((e, i) => (
               <div
                 key={`size_${i}`}
-                className={cx("size")}
+                className={cx(
+                  dataCartSlecting.size === e ? "active" : null,
+                  "size"
+                )}
                 onClick={() => handleOnClick(e)}
               >
                 <div className={cx("text")}>{e}</div>
