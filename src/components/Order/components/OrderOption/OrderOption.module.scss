@@ -1,6 +1,10 @@
 @use "../../../../scss/" as *;
 
 .order-option-container {
+  position: sticky;
+
+  top: 0;
+
   .color,
   .size {
     display: flex;
@@ -65,5 +69,13 @@
     border: 1px solid $text-light;
     height: 40px;
     padding: 0 0.6rem;
+  }
+
+  .btn-add {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+  .btn-buy {
+    margin-left: 0;
   }
 }

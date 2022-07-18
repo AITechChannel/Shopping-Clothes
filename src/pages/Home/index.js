@@ -11,8 +11,12 @@ import dataProductPopular from "../../data/dataProductPopular";
 import dataAllProduct from "../../data/dataAllProduct";
 import { useLocation } from "react-router-dom";
 
+import { useMediaQuery } from "react-responsive";
+
 function Home() {
   const [showOrder, setShowOrder] = useState(false);
+
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
   const [dataProductShow, setDataProductShow] = useState();
 
@@ -20,21 +24,25 @@ function Home() {
     switch (actionName) {
       case "select":
         const dataProductSelect = dataAllProduct.find((e, i) => {
-          console.log(e.id);
           return e.id === id;
         });
 
         setDataProductShow(dataProductSelect);
-        setShowOrder(!showOrder);
+
+        if (!isTabletOrMobile) {
+          setShowOrder(!showOrder);
+        }
 
         break;
     }
   };
+
   const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
   return (
     <>
       <Banner />
@@ -50,7 +58,7 @@ function Home() {
         Top sản phẩm mới
       </h2>
 
-      <ProductList data={dataProductNew} />
+      <ProductList data={dataProductNew} onClick={handleOnClick} />
 
       <div style={{ marginBottom: "60px" }}>
         <img src={saleOffImg} />
@@ -59,7 +67,7 @@ function Home() {
         Sản phẩm phổ biến
       </h2>
 
-      <ProductList data={dataProductPopular} />
+      <ProductList data={dataProductPopular} onClick={handleOnClick} />
 
       {showOrder && (
         <Order

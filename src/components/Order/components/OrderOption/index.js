@@ -85,11 +85,17 @@ function OrderOption({ data, className }) {
             </Button>
           </div>
 
-          <div className="btn-container">
-            <Button primary onClick={() => handleOnClick("add")}>
+          <div className="btn-order">
+            <Button
+              primary
+              onClick={() => handleOnClick("add")}
+              className={cx("btn-add")}
+            >
               Thêm vào giỏ hàng
             </Button>
-            <Button primary>Mua ngay</Button>
+            <Button primary className={cx("btn-buy")}>
+              Mua ngay
+            </Button>
           </div>
         </Col>
       </Row>

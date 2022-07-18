@@ -12,6 +12,7 @@ import Button from "../GlobalComponents/Button";
 import product1 from "../../assets/productImage/1_1.jpg";
 import product2 from "../../assets/productImage/1_2.jpg";
 import NumberFormat from "react-number-format";
+import { useMediaQuery } from "react-responsive";
 const cx = classNames.bind(styles);
 
 function ProductCard({
@@ -24,6 +25,7 @@ function ProductCard({
   onClick,
   id,
 }) {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   return (
     <div className={cx("poduct-card-container", `${className}`)}>
       <div className={cx("card")}>
@@ -56,12 +58,27 @@ function ProductCard({
             />
           </span>
         </div>
-        <Button primary className={cx("btn")} onClick={onClick}>
-          <span className={cx("btn-text")}>Chọn mua</span>
-          <span className={cx("btn-icon")}>
-            <BiCart />
-          </span>
-        </Button>
+        {!isTabletOrMobile && (
+          <Button primary className={cx("btn")} onClick={onClick}>
+            <span className={cx("btn-text")}>Chọn mua</span>
+            <span className={cx("btn-icon")}>
+              <BiCart />
+            </span>
+          </Button>
+        )}
+        {isTabletOrMobile && (
+          <Button
+            primary
+            className={cx("btn")}
+            to={`/product/${id}`}
+            onClick={onClick}
+          >
+            <span className={cx("btn-text")}>Chọn mua</span>
+            <span className={cx("btn-icon")}>
+              <BiCart />
+            </span>
+          </Button>
+        )}
       </div>
     </div>
   );

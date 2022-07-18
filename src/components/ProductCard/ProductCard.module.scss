@@ -59,6 +59,8 @@
     width: 120px;
     position: relative;
     overflow: hidden;
+    display: block;
+    text-align: center;
 
     .btn-text {
       width: 120px;
@@ -82,11 +84,13 @@
         display: block;
         transition: all ease 0.5s;
         transform: translateX(120px) translateY(-50%);
+        color: $white;
       }
       .btn-icon {
         display: block;
         transition: all ease 0.5s;
         transform: translateX(-50%) translateY(-50%);
+        color: $white;
       }
     }
   }

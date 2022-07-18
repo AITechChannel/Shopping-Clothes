@@ -44,9 +44,16 @@ function DesProduct({ data, className }) {
           <p>{data.des.p2}</p>
         </div>
 
-        <Button primary onClick={handleOnClick}>
-          Xem thêm
-        </Button>
+        {!more && (
+          <Button primary onClick={handleOnClick}>
+            Xem thêm
+          </Button>
+        )}
+        {more && (
+          <Button primary onClick={handleOnClick}>
+            Thu gọn
+          </Button>
+        )}
       </Row>
     </div>
   );

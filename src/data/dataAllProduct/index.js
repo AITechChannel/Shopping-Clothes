@@ -44,7 +44,7 @@ const dataAllProduct = [
     priceOld: 169000,
     imageModel: image1_1,
     imageClothes: image1_2,
-    size: ["s", "m", "xl", "xxl"],
+    size: ["s", "m", "xl"],
     color: ["red", "yellow", "white"],
     store: 1000,
     saleOff: "20%",

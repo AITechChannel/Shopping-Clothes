@@ -15,13 +15,18 @@ import { Routes, Route, useParams, useLocation } from "react-router-dom";
 import Order from "../../components/Order";
 import dataProductMore from "../../data/dataProductMore";
 import classNames from "classnames/bind";
-
+import { useMediaQuery } from "react-responsive";
 import styles from "./Detail.module.scss";
 const cx = classNames.bind(styles);
 function Detail() {
   const { id } = useParams();
   const [dataProductShow, setDataProductShow] = useState();
-  console.log(dataProductShow);
+  const [showOrder, setShowOrder] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     if (id) {
@@ -34,20 +39,38 @@ function Detail() {
     console.log(dataProductShow);
   }, [id]);
 
-  const location = useLocation();
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const handleOnClick = (actionName, id) => {
+    switch (actionName) {
+      case "select":
+        const dataProductSelect = dataAllProduct.find((e, i) => {
+          return e.id === id;
+        });
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+        setDataProductShow(dataProductSelect);
 
-  console.log(id);
+        if (!isTabletOrMobile) {
+          setShowOrder(!showOrder);
+        }
+
+        break;
+    }
+  };
+
   return (
     <div className={cx("detail-container")}>
       {dataProductShow && <Order data={dataProductShow} />}
       <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
         Khám phá thêm
       </h2>
-      <ProductList data={dataProductMore} />
+      <ProductList data={dataProductMore} onClick={handleOnClick} />
+      {showOrder && (
+        <Order
+          modal
+          onClose={() => setShowOrder(false)}
+          data={dataProductShow}
+        />
+      )}
     </div>
   );
 }
