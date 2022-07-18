@@ -52,13 +52,16 @@ function Header() {
       <Button
         text
         className={cx("sub-icon")}
-        onClick={() => setShowMenu(!showMenu)}
+        onClick={(e) => setShowMenu(!showMenu)}
       >
         <GrMenu />
       </Button>
 
-      <div className={cx(showMenu ? "active" : null, "overlay")}>
-        <div className={cx("menu-slider")}>
+      <div
+        className={cx(showMenu ? "active" : null, "overlay")}
+        onClick={(e) => setShowMenu(false)}
+      >
+        <div className={cx("menu-slider")} onClick={(e) => e.stopPropagation()}>
           <Button
             text
             className={cx("back-icon")}

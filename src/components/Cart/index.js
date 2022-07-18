@@ -1,24 +1,28 @@
+import { Col, Divider, Row } from "antd";
 import classNames from "classnames/bind";
 import React, { useEffect, useState } from "react";
-import styles from "./Cart.module.scss";
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
-import { Col, Row, Divider } from "antd";
-import Button from "../GlobalComponents/Button";
-import img from "../../assets/productImage/1_1.jpg";
-import { useSelector, useDispatch } from "react-redux";
 import { FiTrash } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import clothesSLice from "../../redux/sliceReducer/clothesSlice";
+import Button from "../GlobalComponents/Button";
+import styles from "./Cart.module.scss";
 
 import NumberFormat from "react-number-format";
 const cx = classNames.bind(styles);
 
 function Cart({ md = 6 }) {
-  const [data, setData] = useState();
   const [total, setTotal] = useState();
   const [number, setNumber] = useState(1);
 
-  console.log("render");
+  const location = useLocation();
+
+  const dataCartRedux = useSelector((state) => state.store.cart);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const dispatch = useDispatch();
 
@@ -26,7 +30,9 @@ function Cart({ md = 6 }) {
     switch (actionName) {
       case "del":
         dispatch(clothesSLice.actions.delCart(id));
-        console.log(id);
+        if (dataCartRedux.length == 1) {
+          localStorage.setItem("cart", JSON.stringify([]));
+        }
         break;
       case "increase":
         setNumber(number + 1);
@@ -37,7 +43,6 @@ function Cart({ md = 6 }) {
             value: number,
           })
         );
-        console.log(id);
         break;
       case "decrease":
         setNumber(number - 1);
@@ -45,36 +50,23 @@ function Cart({ md = 6 }) {
     }
   };
 
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
   useEffect(() => {
     const dataJsonCart = localStorage.getItem("cart");
-
     const dataCart = JSON.parse(dataJsonCart);
-    console.log(dataCart);
+    if (dataJsonCart) {
+      dispatch(clothesSLice.actions.addCart({ initCart: dataCart }));
+    }
+  }, []);
 
-    dispatch(clothesSLice.actions.addCart({ initCart: dataCart }));
-
-    if (dataCart) {
-      const total = dataCart.reduce((total, e, i) => {
+  useEffect(() => {
+    if (dataCartRedux.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(dataCartRedux));
+      const total = dataCartRedux.reduce((total, e, i) => {
         return total + e.data.priceNow * e.number;
       }, 0);
       setTotal(total);
     }
-    setData(dataCart);
-  }, []);
-  const dataRedux = useSelector((state) => state.store.cart);
-
-  useEffect(() => {
-    const jsonData = JSON.stringify(dataRedux);
-    if (dataRedux.length > 0) {
-      localStorage.setItem("cart", jsonData);
-    }
-  }, [dataRedux]);
+  }, [dataCartRedux]);
 
   return (
     <div className={cx("cart-container")}>
@@ -82,10 +74,14 @@ function Cart({ md = 6 }) {
         <Col md={8} xl={8}>
           <div className={cx("order")}>
             <p>
-              Bạn đang có <span>4</span> sản phẩm trong giỏ hàng
+              Bạn đang có
+              <span>
+                <b> {dataCartRedux.length} </b>
+              </span>
+              sản phẩm trong giỏ hàng
             </p>
             <div className={cx("total")}>
-              <span>Tổng tiền</span>{" "}
+              <span>Tổng tiền</span>
               <span className={cx("total-number")}>
                 <NumberFormat
                   value={total}
@@ -93,7 +89,6 @@ function Cart({ md = 6 }) {
                   displayType={"text"}
                   thousandSeparator={true}
                   suffix={" đ"}
-                  // renderText={(value, props) => <span {...props}>{value}</span>}
                 />
               </span>
             </div>
@@ -106,9 +101,9 @@ function Cart({ md = 6 }) {
           </div>
         </Col>
         <Col md={16} xl={16}>
-          {data &&
-            data.map((e, i) => (
-              <div>
+          {dataCartRedux &&
+            dataCartRedux.map((e, i) => (
+              <div key={`cartItem_${i}`}>
                 <div className={cx("product-item")}>
                   <div className={cx("image")}>
                     <img src={e.data.imageModel} />
@@ -132,10 +127,10 @@ function Cart({ md = 6 }) {
                           displayType={"text"}
                           thousandSeparator={true}
                           suffix={" đ"}
-                          // renderText={(value, props) => <span {...props}>{value}</span>}
                         />
                       </b>
                     </span>
+
                     <div className={cx("number-option")}>
                       <Button
                         text
