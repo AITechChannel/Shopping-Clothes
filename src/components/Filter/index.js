@@ -41,7 +41,7 @@ function Filter({ className }) {
           />
         </div>
       </div>
-      <div>
+      {/* <div>
         <p>Danh mục sản phẩm</p>
         <div>
           <CheckBoxCustom
@@ -60,7 +60,7 @@ function Filter({ className }) {
             value="red"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

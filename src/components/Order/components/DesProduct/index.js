@@ -40,7 +40,8 @@ function DesProduct({ data, className }) {
       <Row>
         <h2>Chi tiết sản phẩm</h2>
         <div className={cx(more ? "more" : null, "description")}>
-          <p>{data.des}</p>
+          <p>{data.des.p1}</p>
+          <p>{data.des.p2}</p>
         </div>
 
         <Button primary onClick={handleOnClick}>
