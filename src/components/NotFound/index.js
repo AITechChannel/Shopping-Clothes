@@ -8,9 +8,9 @@ const cx = classNames.bind(styles);
 function NotFound() {
   return (
     <div className={cx("notfound-container")}>
-      <h2>I'm sorry</h2>
-      <h2>Page not found</h2>
-      <span>Please check again URL</span>
+      <h2>Xin lỗi</h2>
+      <h2>Trang không tìm thấy</h2>
+      <span>Vui lòng kiểm trai lại đường dẫn URL</span>
     </div>
   );
 }

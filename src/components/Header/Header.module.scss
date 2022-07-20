@@ -122,6 +122,12 @@
       justify-content: center;
 
       position: relative;
+      a {
+        color: unset;
+        &:hover {
+          color: $primary;
+        }
+      }
 
       span {
         position: absolute;
@@ -139,6 +145,9 @@
         color: $white;
         font-size: 0.9rem;
       }
+    }
+    .cart.active {
+      color: $primary;
     }
   }
 }

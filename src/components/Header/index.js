@@ -4,10 +4,12 @@ import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import { BiCart } from "react-icons/bi";
 import { GrMenu, GrPrevious } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import clothesSLice from "../../redux/sliceReducer/clothesSlice";
 import Button from "../GlobalComponents/Button";
 import styles from "./Header.module.scss";
+
+import { message } from "antd";
 const cx = classNames.bind(styles);
 
 const headerNav = [
@@ -22,8 +24,10 @@ const headerNav = [
     path: "/contact",
   },
 ];
+
 function Header() {
   const { pathname } = useLocation();
+
   const dataCart = useSelector((state) => state.store.cart);
 
   const isActiveIndex = headerNav.findIndex((e, i) => {
@@ -60,6 +64,10 @@ function Header() {
       localStorage.setItem("cart", JSON.stringify(dataCartRedux));
     }
   }, [dataCartRedux]);
+
+  const warning = () => {
+    message.warning("Xin lỗi! Chức năng này đang được cập nhật");
+  };
 
   return (
     <div className={cx("header-container", shinkHeader ? "shink" : null)}>
@@ -114,16 +122,16 @@ function Header() {
       <span className={cx("logo")}>Yolo Shop</span>
 
       <div className={cx("actions")}>
-        <Button className={cx("action-icon")} text>
+        <Button className={cx("action-icon")} text onClick={warning}>
           <AiOutlineSearch />
         </Button>
-        <div className={cx("cart")}>
+        <div className={cx("cart", pathname === "/cart" ? "active" : null)}>
           <Button to="/cart" className={cx("action-icon")} text>
             <BiCart />
           </Button>
           <span>{dataCart.length}</span>
         </div>
-        <Button className={cx("action-icon")} text>
+        <Button className={cx("action-icon")} text onClick={warning}>
           <AiOutlineUser />
         </Button>
       </div>

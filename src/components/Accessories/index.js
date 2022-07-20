@@ -8,8 +8,8 @@ const cx = classNames.bind(styles);
 function Accessories() {
   return (
     <div className={cx("accessories-container")}>
-      <h2>I'm sorry</h2>
-      <h2>Page is updating data</h2>
+      <h2>Xin lỗi!</h2>
+      <h2>Admin chưa cập nhật dữ liệu</h2>
     </div>
   );
 }
