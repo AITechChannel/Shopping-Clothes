@@ -3,7 +3,6 @@ import classNames from "classnames/bind";
 import React, { useState } from "react";
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import dataAllProduct from "../../../../data/dataAllProduct";
 import clothesSLice from "../../../../redux/sliceReducer/clothesSlice";
 import Button from "../../../GlobalComponents/Button";
 import styles from "./OrderOption.module.scss";
@@ -29,6 +28,7 @@ function OrderOption({ data, className }) {
         actionName: actionName,
         data: data,
         number: number,
+        id: data.id,
       })
     );
   };
@@ -102,7 +102,7 @@ function OrderOption({ data, className }) {
           <div className="btn-order">
             <Button
               primary
-              onClick={() => handleOnClick("add")}
+              onClick={() => handleOnClick("add", data.id)}
               className={cx("btn-add")}
             >
               Thêm vào giỏ hàng

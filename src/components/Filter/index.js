@@ -1,9 +1,9 @@
 import classNames from "classnames/bind";
-import React, { useState } from "react";
-import CheckBoxCustom from "../GlobalComponents/CheckBoxCustom";
-import styles from "./Filter.module.scss";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import clothesSLice from "../../redux/sliceReducer/clothesSlice";
+import CheckBoxCustom from "../GlobalComponents/CheckBoxCustom";
+import styles from "./Filter.module.scss";
 const cx = classNames.bind(styles);
 
 function Filter({ className }) {
@@ -20,7 +20,7 @@ function Filter({ className }) {
   };
 
   return (
-    <div className={cx("Filter-container", `${className}`)}>
+    <div className={cx("filter-container", `${className}`)}>
       <div>
         <p>
           <b>Danh mục sản phẩm</b>

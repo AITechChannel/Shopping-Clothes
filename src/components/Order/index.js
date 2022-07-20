@@ -1,6 +1,6 @@
-import React from "react";
 import { Col, Row } from "antd";
 import classNames from "classnames/bind";
+import React from "react";
 import Button from "../GlobalComponents/Button";
 import DesProduct from "./components/DesProduct";
 import OrderOption from "./components/OrderOption";

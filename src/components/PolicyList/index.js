@@ -1,18 +1,11 @@
-import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Col, Row } from "antd";
 import classNames from "classnames/bind";
-import styles from "./PolicyList.module.scss";
-import {
-  AiOutlineSearch,
-  AiOutlineUser,
-  AiFillCreditCard,
-} from "react-icons/ai";
-import Button from "../GlobalComponents/Button";
+import React from "react";
+import { AiFillCreditCard } from "react-icons/ai";
 import { BiCart, BiDonateBlood } from "react-icons/bi";
-import PolicyCard from "../PolicyCard";
-import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { RiVipCrownLine } from "react-icons/ri";
-import { Row, Col } from "antd";
+import PolicyCard from "../PolicyCard";
+import styles from "./PolicyList.module.scss";
 const cx = classNames.bind(styles);
 
 const data = [

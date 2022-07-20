@@ -3,6 +3,7 @@ import dataAllProduct from "../../data/dataAllProduct";
 import { useDispatch, useSelector } from "react-redux";
 import dataAllType from "../../data/dataAllType";
 import dataAllColor from "../../data/dataAllColor";
+import dataAllSize from "../../data/dataAllSize";
 const clothesSLice = createSlice({
   name: "clothes",
   initialState: {
@@ -54,24 +55,43 @@ const clothesSLice = createSlice({
       // }
     },
     addCart: (state, action) => {
-      if (dataAllColor.includes(action.payload.actionName)) {
-        state.cartSelecting.color = action.payload.actionName;
-      }
-      if (["s", "m", "xl", "xxl"].includes(action.payload.actionName)) {
-        state.cartSelecting.size = action.payload.actionName;
-      }
+      const currentData = state.cart.find(
+        (e, i) => e.data.id === action.payload.id
+      );
 
-      if (action.payload.actionName === "add") {
-        console.log(current(state.cartSelecting));
+      if (currentData) {
+        if (dataAllColor.includes(action.payload.actionName)) {
+          currentData.color = action.payload.actionName;
+          state.cartSelecting.color = action.payload.actionName;
+        }
+        if (dataAllSize.includes(action.payload.actionName)) {
+          currentData.size = action.payload.actionName;
+          state.cartSelecting.size = action.payload.actionName;
+        }
+        if (action.payload.actionName === "add") {
+          currentData.number = action.payload.number;
+          state.cartSelecting.data = action.payload.data;
+          state.cartSelecting.number = action.payload.number;
+        }
+      } else {
+        if (dataAllColor.includes(action.payload.actionName)) {
+          state.cartSelecting.color = action.payload.actionName;
+        }
 
-        state.cartSelecting.data = action.payload.data;
-        state.cartSelecting.number = action.payload.number;
+        if (dataAllSize.includes(action.payload.actionName)) {
+          state.cartSelecting.size = action.payload.actionName;
+        }
 
-        state.cart.push(state.cartSelecting);
-      }
+        if (action.payload.actionName === "add") {
+          state.cartSelecting.data = action.payload.data;
+          state.cartSelecting.number = action.payload.number;
 
-      if (action.payload.initCart) {
-        state.cart = action.payload.initCart;
+          state.cart.push(state.cartSelecting);
+        }
+
+        if (action.payload.initCart) {
+          state.cart = action.payload.initCart;
+        }
       }
     },
     delCart: (state, action) => {
@@ -82,12 +102,18 @@ const clothesSLice = createSlice({
     },
     updateCart: (state, action) => {
       if (action.payload.actionName === "increase") {
-        const current1 = state.cart.find(
-          (e, i) => e.data.id == action.payload.value
+        const currentData = state.cart.find(
+          (e, i) => e.data.id == action.payload.id
         );
-
-        // current1.number = action.payload.value;
-        // console.log(current(current1));
+        currentData.number = currentData.number + 1;
+      }
+      if (action.payload.actionName === "decrease") {
+        const currentData = state.cart.find(
+          (e, i) => e.data.id == action.payload.id
+        );
+        if (currentData.number > 1) {
+          currentData.number = currentData.number - 1;
+        }
       }
     },
   },

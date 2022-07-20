@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
-import saleOffImg from "../../assets/saleOffImage/1.png";
-import Banner from "../../components/Banner";
-import PolicyList from "../../components/PolicyList";
 import ProductList from "../../components/ProducList";
-
-import { Row, Col } from "antd";
+import { Col, Row } from "antd";
 import Filter from "../../components/Filter";
 import dataAllProduct from "../../data/dataAllProduct";
-
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import classNames from "classnames/bind";
+import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import styles from "./Product.module.scss";
+import { useLocation } from "react-router-dom";
 import Order from "../../components/Order";
+import styles from "./Product.module.scss";
+
 const cx = classNames.bind(styles);
+
 function Product() {
   const data = useSelector((state) => state.store.productList);
 

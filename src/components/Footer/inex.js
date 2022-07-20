@@ -1,7 +1,7 @@
+import { Col, Row } from "antd";
 import classNames from "classnames/bind";
 import React from "react";
 import styles from "./Footer.module.scss";
-import { Row, Col } from "antd";
 const cx = classNames.bind(styles);
 
 function Footer({ className }) {
@@ -35,7 +35,7 @@ function Footer({ className }) {
         </Col>
 
         <Col md={6} xs={12}>
-          <h5>Về Yolo Shop</h5>
+          <h5>Chăm sóc khách hàng</h5>
           <ul>
             <li>Chính sách đổi trả</li>
             <li>Chính sách bảo hành</li>
@@ -43,7 +43,7 @@ function Footer({ className }) {
           </ul>
         </Col>
         <Col md={6} xs={12}>
-          <h5>Về Yolo Shop</h5>
+          <h5>Yolo Shop</h5>
           <p>
             Hướng đến mục tiêu mang lại niềm vui ăn mặc mới mỗi ngày cho hàng
             triệu người tiêu dùng Việt. Hãy cùng ReactShop hướng đến một cuộc

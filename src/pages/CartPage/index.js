@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import Cart from "../../components/Cart";
+import React from "react";
 import { useSelector } from "react-redux";
+import Cart from "../../components/Cart";
 
-import emptyCart from "../../assets/emptyCart/empty-cart.png";
 import classNames from "classnames/bind";
+import emptyCart from "../../assets/emptyCart/empty-cart.png";
 
 import styles from "./CartPage.module.scss";
 const cx = classNames.bind(styles);

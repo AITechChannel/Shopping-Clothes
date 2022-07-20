@@ -1,18 +1,11 @@
-import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
-import styles from "./ProductCard.module.scss";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineSearch,
-  AiOutlineUser,
-} from "react-icons/ai";
+import React from "react";
 import { BiCart } from "react-icons/bi";
-import Button from "../GlobalComponents/Button";
-import product1 from "../../assets/productImage/1_1.jpg";
-import product2 from "../../assets/productImage/1_2.jpg";
 import NumberFormat from "react-number-format";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
+import Button from "../GlobalComponents/Button";
+import styles from "./ProductCard.module.scss";
 const cx = classNames.bind(styles);
 
 function ProductCard({

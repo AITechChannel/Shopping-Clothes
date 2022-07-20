@@ -1,15 +1,12 @@
-import "./App.scss";
-import Home from "./pages/Home";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import Accessories from "./components/Accessories";
 import MainLayout from "./components/layouts/MainLayout";
 import NotFound from "./components/NotFound";
-import Product from "./pages/Product";
-import Detail from "./pages/Detail";
-import { useSelector } from "react-redux";
 import CartPage from "./pages/CartPage";
-import { useEffect } from "react";
-import Accessories from "./components/Accessories";
+import Detail from "./pages/Detail";
+import Home from "./pages/Home";
+import Product from "./pages/Product";
 
 const publicRoutes = [
   { path: "/", component: Home },

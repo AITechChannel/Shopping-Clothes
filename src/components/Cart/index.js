@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
 import { FiTrash } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import clothesSLice from "../../redux/sliceReducer/clothesSlice";
 import Button from "../GlobalComponents/Button";
 import styles from "./Cart.module.scss";
@@ -14,12 +14,8 @@ const cx = classNames.bind(styles);
 
 function Cart({ md = 6 }) {
   const [total, setTotal] = useState();
-  const [number, setNumber] = useState(1);
 
   const location = useLocation();
-  console.log("render cart");
-
-  const dataCartRedux = useSelector((state) => state.store.cart);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,33 +32,28 @@ function Cart({ md = 6 }) {
         }
         break;
       case "increase":
-        setNumber(number + 1);
         dispatch(
           clothesSLice.actions.updateCart({
             actionName: "increase",
             id: id,
-            value: number,
           })
         );
         break;
       case "decrease":
-        setNumber(number - 1);
+        dispatch(
+          clothesSLice.actions.updateCart({
+            actionName: "decrease",
+            id: id,
+          })
+        );
         break;
     }
   };
 
-  useEffect(() => {
-    const dataJsonCart = localStorage.getItem("cart");
-    const dataCart = JSON.parse(dataJsonCart);
-    console.log(dataCart);
-    if (dataJsonCart) {
-      dispatch(clothesSLice.actions.addCart({ initCart: dataCart }));
-    }
-  }, []);
+  const dataCartRedux = useSelector((state) => state.store.cart);
 
   useEffect(() => {
     if (dataCartRedux.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(dataCartRedux));
       const total = dataCartRedux.reduce((total, e, i) => {
         return total + e.data.priceNow * e.number;
       }, 0);
@@ -108,7 +99,9 @@ function Cart({ md = 6 }) {
               <div key={`cartItem_${i}`}>
                 <div className={cx("product-item")}>
                   <div className={cx("image")}>
-                    <img src={e.data.imageModel} />
+                    <Link to={`/product/${e.data.id}`}>
+                      <img src={e.data.imageModel} />
+                    </Link>
                   </div>
                   <div className={cx("content")}>
                     <div className={cx("text")}>

@@ -1,13 +1,6 @@
-import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
+import React from "react";
 import styles from "./PolicyCard.module.scss";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineSearch,
-  AiOutlineUser,
-} from "react-icons/ai";
-import Button from "../GlobalComponents/Button";
 
 const cx = classNames.bind(styles);
 

@@ -1,1 +1,7 @@
 @use "../../scss/" as *;
+.filter-container {
+  margin-bottom: 2rem;
+  @include mobile {
+    margin-left: 20px;
+  }
+}

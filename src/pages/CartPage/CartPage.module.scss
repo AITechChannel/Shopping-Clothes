@@ -5,10 +5,15 @@
   justify-content: center;
   .img-empty {
     width: 50%;
-    padding-top: 70px;
+    padding-top: 100px;
 
     @include tablet {
       padding: 100px 0;
+      width: 70%;
+    }
+
+    @include mobile {
+      width: 100%;
     }
   }
 }

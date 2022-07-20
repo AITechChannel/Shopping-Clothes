@@ -51,6 +51,9 @@
       text-align: center;
       transform: translateX(-400px);
       transition: all ease 0.3s;
+      @include mobile {
+        width: 100%;
+      }
       .menu-item {
         margin-bottom: 20px;
       }

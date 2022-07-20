@@ -6,10 +6,10 @@ import PolicyList from "../../components/PolicyList";
 import ProductList from "../../components/ProducList";
 import dataProductBestSeller from "../../data/dataProductBestSeller";
 
+import { useLocation } from "react-router-dom";
+import dataAllProduct from "../../data/dataAllProduct";
 import dataProductNew from "../../data/dataProductNew";
 import dataProductPopular from "../../data/dataProductPopular";
-import dataAllProduct from "../../data/dataAllProduct";
-import { useLocation } from "react-router-dom";
 
 import { useMediaQuery } from "react-responsive";
 

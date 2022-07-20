@@ -1,8 +1,6 @@
 import { Col, Row } from "antd";
 import classNames from "classnames/bind";
 import React, { useState } from "react";
-import img1 from "../../../../assets/productImage/1_1.jpg";
-import img2 from "../../../../assets/productImage/1_2.jpg";
 import Button from "../../../GlobalComponents/Button";
 import styles from "./DesProduct.module.scss";
 

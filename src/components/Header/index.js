@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
-import styles from "./Header.module.scss";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineSearch,
-  AiOutlineUser,
-} from "react-icons/ai";
-import { useSelector } from "react-redux";
-import { GrMenu, GrClose, GrPrevious } from "react-icons/gr";
+import React, { useEffect, useState } from "react";
+import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import { BiCart } from "react-icons/bi";
+import { GrMenu, GrPrevious } from "react-icons/gr";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import clothesSLice from "../../redux/sliceReducer/clothesSlice";
 import Button from "../GlobalComponents/Button";
+import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
 
 const headerNav = [
@@ -46,6 +43,23 @@ function Header() {
     };
     window.addEventListener("scroll", handleSrollY);
   });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const dataJsonCart = localStorage.getItem("cart");
+    const dataCart = JSON.parse(dataJsonCart);
+    if (dataJsonCart) {
+      dispatch(clothesSLice.actions.addCart({ initCart: dataCart }));
+    }
+  }, []);
+  const dataCartRedux = useSelector((state) => state.store.cart);
+
+  useEffect(() => {
+    if (dataCartRedux.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(dataCartRedux));
+    }
+  }, [dataCartRedux]);
 
   return (
     <div className={cx("header-container", shinkHeader ? "shink" : null)}>
